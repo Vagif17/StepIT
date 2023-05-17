@@ -62,9 +62,9 @@ Deal makeDeal() {
     cout << "Enter description : ";
     cin.getline(d1.description, 150);
 
+
     cout << "Enter date (00.00.0000 format) :\nDay : ";
     cin >> d1.date.day;
-
 
 
     cout << "Month : ";
@@ -83,30 +83,10 @@ int main()
     f1 = new Deal[20]{};
     uint16_t index{};
     uint16_t choose{};
-    char tmp{};
     while (choose != 8)
     {
-  
-
-        while (int(tmp) <= 48 || int(tmp) >= 57)
-        {
-            cout << "\n1.Create new deal\n2.View all deals\n3.Delete deal\n4.Edit deal\n5.Sort deals\n6.Find\n7.Check date\n8.End \n:";
-            cin >> tmp;
-            if (int (tmp) >= 48 && int(tmp) <= 57)
-            {
-                choose == int(tmp);
-            }
-        }
-
-
-        while (choose < 1 || choose > 8)
-        {
-            cout << "Error:: Enter right number : ";
-            cin >> choose;
-        }
-
-        
-
+        cout << "\n1.Create new deal\n2.View all deals\n3.Delete deal\n4.Edit deal\n5.Sort deals\n6.Find\n7.Check date\n8.End \n:";
+        cin >> choose;
         switch (choose)
         {
 
@@ -295,34 +275,34 @@ int main()
                 }
 
                 int tmpInd{};
-                for (int y = minDate.year; y < maxDate.year + 1; y++)
-                {
-                    for (size_t m = 1; m < 13; m++)
+                  for ( int y = minDate.year;  y < maxDate.year + 1;  y++)
                     {
-                        for (size_t d = 1; d < 32; d++)
-                        {
-                            for (size_t i = 0; i < index; i++)
-                            {
-                                if (f1[i].date.year == y)
-                                {
-                                    if (f1[i].date.month == m)
-                                    {
-                                        if (f1[i].date.day == d)
-                                        {
-                                            tmpSortedByDate[tmpInd] = f1[i];
-                                            tmpInd++;
+                      for (size_t m = 1; m < 13; m++)
+                      {
+                          for (size_t d = 1; d < 32; d++)
+                          {
+                              for (size_t i = 0; i < index; i++)
+                              {
+                                  if (f1[i].date.year == y)
+                                  {
+                                      if (f1[i].date.month == m)
+                                      {
+                                          if (f1[i].date.day == d)
+                                          {
+                                              tmpSortedByDate[tmpInd] = f1[i];
+                                              tmpInd++;
 
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
                     }
-                }
-                tmpInd = 0;
-                cout << "\nSorted is completed!\n";
-                delete[] f1;
-                f1 = new Deal[20]{};
+                  tmpInd = 0;
+                  cout << "\nSorted is completed!\n";
+                  delete[] f1;
+                  f1 = new Deal[20]{};
                 for (size_t i = 0; i < index; i++)
                 {
                     f1[i] = tmpSortedByDate[i];
@@ -331,10 +311,10 @@ int main()
                 break;
 
             }
-
+                
         }
 
-        case 6:
+        case 6 :
         {
             if (index == 0)
             {
@@ -349,7 +329,7 @@ int main()
             if (searchMethod == 1)
             {
                 cin.ignore();
-                char* tmpName = new char[40] {};
+                char* tmpName = new char[40]{};
                 cout << "Enter name for search : ";
                 cin.getline(tmpName, 40);
                 int correct{};
@@ -365,7 +345,7 @@ int main()
                     correct = 0;
                     for (size_t b = 0; b < len; b++)
                     {
-                        if (int(tmpName[b]) == int(f1[i].name[b]) || int(tmpName[b]) == int(f1[i].name[b] + 32) || int(tmpName[b]) == int(f1[i].name[b] - 32))
+                        if (int (tmpName[b]) == int (f1[i].name[b]) || int(tmpName[b]) == int(f1[i].name[b] + 32) || int(tmpName[b]) == int(f1[i].name[b] - 32))
                         {
                             correct++;
                         }
@@ -411,7 +391,7 @@ int main()
             if (searchMethod == 3)
             {
                 cin.ignore();
-                char* tmpDescription = new char [150] {};
+                char* tmpDescription = new char [150]{};
 
                 cout << "Enter Description : ";
                 cin.getline(tmpDescription, 150);
@@ -450,8 +430,8 @@ int main()
                             f1[i].view();
                             cout << "\n--------------------\n";
 
-                        }
-
+                    }
+                    
                     }
                 }
             }
@@ -482,102 +462,93 @@ int main()
             }
             break;
         }
-        case 7:
-        {
-            int choice{};
-            cout << "Check \n1.Day\n2.Week\n3.Month\n";
-            cin >> choice;
+          case 7:
+          {
+              int choice{};
+              cout << "Check \n1.Day\n2.Week\n3.Month\n";
+              cin >> choice;
 
-            if (choice == 1)
-            {
-                Date tmpDay{};
-                cout << "Enter date \nDay : ";
-                cin >> tmpDay.day;
+              if (choice == 1)
+              {
+                  Date tmpDay{};
+                  cout << "Enter date \nDay : ";
+                  cin >> tmpDay.day;
 
-                cout << "Month : ";
-                cin >> tmpDay.month;
+                  cout << "Month : ";
+                  cin >> tmpDay.month;
 
-                cout << "Year : ";
-                cin >> tmpDay.year;
+                  cout << "Year : ";
+                  cin >> tmpDay.year;
 
-                for (size_t i = 0; i < index; i++)
-                {
-                    if (f1[i].date.year == tmpDay.year && tmpDay.month == f1[i].date.month && f1[i].date.day == tmpDay.day)
-                    {
-                        cout << "\n--------------------\n";
-                        cout << "Index : " << i << endl;
-                        f1[i].view();
-                        cout << "\n--------------------\n";
-                    }
-                }
-            }
+                  for (size_t i = 0; i < index; i++)
+                  {
+                      if (f1[i].date.year == tmpDay.year && tmpDay.month == f1[i].date.month && f1[i].date.day == tmpDay.day)
+                      {
+                          cout << "\n--------------------\n";
+                          cout << "Index : " << i << endl;
+                          f1[i].view();
+                          cout << "\n--------------------\n";
+                      }
+                  }
+              }
 
-            if (choice == 2)
-            {
-                Date tmpWeek{};
-                cout << "Enter date \nDay : ";
-                cin >> tmpWeek.day;
+              if (choice == 2)
+              {
+                  Date tmpWeek{};
+                  cout << "Enter date \nDay : ";
+                  cin >> tmpWeek.day;
 
-                cout << "Month : ";
-                cin >> tmpWeek.month;
+                  cout << "Month : ";
+                  cin >> tmpWeek.month;
 
-                cout << "Year : ";
-                cin >> tmpWeek.year;
+                  cout << "Year : ";
+                  cin >> tmpWeek.year;
+                  
+                  for (size_t i = 0; i < index; i++)
+                  {
 
-                for (size_t i = 0; i < index; i++)
-                {
 
+                      if (f1[i].date.year == tmpWeek.year && tmpWeek.month == f1[i].date.month)
+                      {
+                          if (f1[i].date.day >= tmpWeek.day && tmpWeek.day <= tmpWeek.day + 7)
+                          {
+                              cout << "\n--------------------\n";
+                              cout << "Index : " << i << endl;
+                              f1[i].view();
+                              cout << "\n--------------------\n";
+                          }
+                      }
+                  }
+              }
 
-                    if (f1[i].date.year == tmpWeek.year && tmpWeek.month == f1[i].date.month)
-                    {
-                        if (f1[i].date.day >= tmpWeek.day && tmpWeek.day <= tmpWeek.day + 7)
-                        {
-                            cout << "\n--------------------\n";
-                            cout << "Index : " << i << endl;
-                            f1[i].view();
-                            cout << "\n--------------------\n";
-                        }
-                    }
-                }
-            }
+              if (choice == 3)
+              {
+                  Date tmpMonth{};
+                  cout << "Enter date \nDay : ";
+                  cin >> tmpMonth.day;
 
-            if (choice == 3)
-            {
-                Date tmpMonth{};
-                cout << "Enter date \nDay : ";
-                cin >> tmpMonth.day;
+                  cout << "Month : ";
+                  cin >> tmpMonth.month;
 
-                cout << "Month : ";
-                cin >> tmpMonth.month;
+                  cout << "Year : ";
+                  cin >> tmpMonth.year;
 
-                cout << "Year : ";
-                cin >> tmpMonth.year;
+                  for (size_t i = 0; i < index; i++)
+                  {
+                      if (f1[i].date.year == tmpMonth.year && tmpMonth.month == f1[i].date.month)
+                      {
+                          cout << "\n--------------------\n";
+                          cout << "Index : " << i << endl;
+                          f1[i].view();
+                          cout << "\n--------------------\n";
+                      }
+                  }
+              }
 
-                for (size_t i = 0; i < index; i++)
-                {
-                    if (f1[i].date.year == tmpMonth.year && tmpMonth.month == f1[i].date.month)
-                    {
-                        cout << "\n--------------------\n";
-                        cout << "Index : " << i << endl;
-                        f1[i].view();
-                        cout << "\n--------------------\n";
-                    }
-                }
-            }
-
-            break;
-        }
-
-        case 8 :
-        {
-            cout   << "End of wokring "  ;
-            return 0;
-            break;
-        }
+              break;
+          }
 
         }
-
-
     }
-    return 0;
+        return 0;
 }
