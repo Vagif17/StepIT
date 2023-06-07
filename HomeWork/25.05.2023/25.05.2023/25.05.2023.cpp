@@ -22,7 +22,6 @@ public:
 };
 
 class SSD {
-	int memory{};
 	string mark{};
 	string model{};
 public:
