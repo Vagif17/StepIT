@@ -54,7 +54,6 @@ public:
 class cooler {
 	string mark{};
 	string model{};
-	int RevolutinsPerSecond{};
 public:
 	cooler() = default;
 	cooler(string model, string mark)
