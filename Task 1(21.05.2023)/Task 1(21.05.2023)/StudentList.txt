@@ -1,7 +1,0 @@
-Name: Vagif
-Surname: Aliev
-Father name: Mubariz
-Work number: None
-Mobile number :  +994705555998
-Gmail :  Vagif.Aliev.17.04@gmail.com
-Birth date : 17.04.2007
