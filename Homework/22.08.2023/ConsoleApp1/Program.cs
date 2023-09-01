@@ -64,8 +64,26 @@
 
 //Console.WriteLine("Enter six digit number :");
 //String tmp = (Console.ReadLine());
-//tmp = $"{tmp[5]}{tmp[1]}{tmp[2]}{tmp[3]}{tmp[4]}{tmp[0]}";
-//Console.WriteLine(tmp);
+//String final = "";
+//if (tmp.Length > 6 && tmp.Length < 6) { Console.WriteLine("Your number is no 6 digit !"); }
+//else
+//{
+//    Console.WriteLine("Enter first index : ");
+//    Int32 firstnumber;
+//    bool first_b = Int32.TryParse((Console.ReadLine()), out firstnumber);
+//    Int32 secondnumber;
+//    Console.WriteLine("Enter second index");
+//    bool second_b = Int32.TryParse((Console.ReadLine()), out secondnumber);
+//    secondnumber -= 1;
+//    firstnumber -= 1;
+//    for (int i = 0; i < 6; i++)
+//    {
+//        if (i == firstnumber) { final += tmp[secondnumber]; }
+//        if (i == secondnumber) { final += tmp[firstnumber]; }
+//        if (i != firstnumber && i != secondnumber) { final += tmp[i]; }
+//    }
+//    Console.WriteLine(final);
+//}
 
 #endregion
 
