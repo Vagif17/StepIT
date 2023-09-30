@@ -129,6 +129,13 @@
 
     public void StartMathQuiz(String Login)
     {
+        for (int i = 0; i < AllUsers.Count; i++)
+        {
+            if (AllUsers[i].Login == Login)
+            {
+                AllUsers[i].MathRightAnswers = 0;
+            }
+        }
         Int32 Count = 0;
         Int32[] UserAnswers = new int[0];
 
@@ -264,6 +271,13 @@
 
     public void StartHistoryQuiz(String Login)
     {
+        for (int i = 0; i < AllUsers.Count; i++)
+        {
+            if (AllUsers[i].Login == Login)
+            {
+                AllUsers[i].HistoryRightAnswers = 0;
+            }
+        }
         Int32 Count = 0;
         Int32[] UserAnswers = new int[0];
 
@@ -396,6 +410,13 @@
 
     public void StartGeographyQuiz(String Login)
     {
+        for (int i = 0; i < AllUsers.Count; i++)
+        {
+            if (AllUsers[i].Login == Login)
+            {
+                AllUsers[i].GeographyRightAnswers = 0;
+            }
+        }
         Int32 Count = 0;
         Int32[] UserAnswers = new int[0];
 
@@ -566,6 +587,13 @@
 
     public void StartRandomyQuiz(String Login)
     {
+        for (int i = 0; i < AllUsers.Count; i++)
+        {
+            if (AllUsers[i].Login == Login)
+            {
+                AllUsers[i].RandomRightAnswers = 0;
+            }
+        }
         Int32 Count = 0;
         Int32[] UserAnswers = new int[0];
 
