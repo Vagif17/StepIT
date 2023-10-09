@@ -297,6 +297,8 @@ namespace Calculator
         {
             Example.Text += ',';
         }
+
+       
     }
     
 }

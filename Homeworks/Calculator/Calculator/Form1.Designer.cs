@@ -105,15 +105,15 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.03581F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.96419F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
-            this.tableLayoutPanel2.Controls.Add(this.button9, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button8, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button7, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.button5, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.button4, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.button6, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.button7, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button8, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.button9, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button3, 2, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 157);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
@@ -128,7 +128,7 @@
             this.button9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(381, 131);
+            this.button9.Location = new System.Drawing.Point(381, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(176, 56);
             this.button9.TabIndex = 10;
@@ -141,7 +141,7 @@
             this.button8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(188, 131);
+            this.button8.Location = new System.Drawing.Point(188, 3);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(187, 56);
             this.button8.TabIndex = 9;
@@ -154,7 +154,7 @@
             this.button7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(3, 131);
+            this.button7.Location = new System.Drawing.Point(3, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(179, 56);
             this.button7.TabIndex = 8;
@@ -193,7 +193,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(381, 3);
+            this.button3.Location = new System.Drawing.Point(381, 131);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 56);
             this.button3.TabIndex = 4;
@@ -206,7 +206,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(188, 3);
+            this.button2.Location = new System.Drawing.Point(188, 131);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(187, 56);
             this.button2.TabIndex = 3;
@@ -219,7 +219,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Location = new System.Drawing.Point(3, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 56);
             this.button1.TabIndex = 2;
