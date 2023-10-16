@@ -1,0 +1,51 @@
+﻿<Window x:Class="To_Do_List.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:To_Do_List"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="Gray">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Column="0">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <Label Name="titlenameLabel"  FontSize="22" FontFamily="Microsoft Sans Serif" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="131,0,0,0" Foreground="Black">Enter Title</Label>
+            <TextBox Grid.Row="1" x:Name="titlenameBox" Margin="10,10,10,20" TextAlignment="Center" FontSize="22" FontFamily="Microsoft Sans Serif" Grid.ColumnSpan="2" />
+
+
+            <Label Grid.Row="2" Name="dateLabel"  FontSize="22" FontFamily="Microsoft Sans Serif" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="131,0,0,0" Foreground="Black">Enter Date</Label>
+            <DatePicker Name="datetaskPicker" SelectedDateFormat="Short" Grid.Row="3" Height="38" FontSize="24" ></DatePicker>
+
+            <Label Grid.Row="4" Name="describtionLabel"  FontSize="22" FontFamily="Microsoft Sans Serif" VerticalAlignment="Center" Margin="99,0,0,0" Foreground="Black" HorizontalAlignment="Left" RenderTransformOrigin="0.264,0.571">Enter Describtion</Label>
+            <TextBox Grid.Row="5" x:Name="describtionsBox" Margin="10,10,10,20" TextAlignment="Center" FontSize="22" FontFamily="Microsoft Sans Serif" Grid.ColumnSpan="2" />
+
+
+            <Button Grid.Row="6" Name="addBtn" Margin="10,10,10,10" Click="addBtn_Click">Add</Button>
+        </Grid>
+
+        <ListBox x:Name="tasksListBox" Grid.Column="1" Background="Gray"></ListBox> 
+
+    </Grid>
+</Window>
