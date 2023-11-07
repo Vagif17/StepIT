@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using Monefy.Messages;
 using Monefy.Services;
+using Monefy.Services.Classes;
 using Monefy.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -42,21 +43,42 @@ class BudgetEnterViewModel : ViewModelBase
 
     public RelayCommand goback
     {
+        
         get => new(
             () =>
             {
                 _navigationService.NavigateTo<BudgetViewModel>();
             });
     }
-    public RelayCommand addcommand
+    public MyRelayCommand addcommand
     {
         get => new(
             () =>
             {
                 object[] send = { Category, Convert.ToInt32(ExpenseValue) };
                 _navigationService.NavigateTo<BudgetViewModel>(send);
-            });
+                ExpenseValue = "";
+
+            },
+
+            () =>
+            {
+                if (!String.IsNullOrEmpty(ExpenseValue)) 
+                {
+                    for (int i = 0; i < ExpenseValue.Length; i++)
+                    {
+                        if (ExpenseValue[i] < 48 || ExpenseValue[i] > 57)
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                return false;
+            }
+            );                                                    
+       
+
     }
-
-
+    
 }

@@ -26,17 +26,17 @@
             </md:HintAssist.Hint>
         </TextBox>-->
 
-        <Label Grid.Row="1" Foreground="#FF7AC793" Margin="185,20,370,70" FontSize="20" Content="{Binding Category}" />
-        <TextBox Text="{Binding ExpenseValue}" md:HintAssist.HelperText="Expenses" Grid.Row="1" Background="WhiteSmoke" Margin="190,60,200,30" FontSize="20">
+        <Label Grid.Row="1" BorderBrush="#FF7AC793" Foreground="#FF7AC793" Margin="185,20,370,70" FontSize="20" Content="{Binding Category}" />
+        <TextBox Text="{Binding ExpenseValue, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Background="WhiteSmoke" Margin="190,60,200,30" FontSize="20" >
             <md:HintAssist.Hint>
-                <TextBlock FontSize="20" Text="Enter Expenses..."/>
+                <TextBlock FontSize="20" Text="Enter..."/>
             </md:HintAssist.Hint>
         </TextBox>
 
 
-        <Button x:Name="backBtn" Content="Go Back" Command="{Binding goback}" Background="#FF7AC793" Margin="0,0,690,100"/>
+        <Button x:Name="backBtn" BorderBrush="#FF7AC793" Content="Go Back" Command="{Binding goback}" Background="#FF7AC793" Margin="0,0,690,100"/>
 
-        <Button x:Name="addBtn" Command="{Binding addcommand}" CommandParameter="{Binding Category}" Grid.Row ="2" Margin="150,10,150,10" Background="#FF7AC793">Add</Button>
+        <Button x:Name="addBtn"  BorderBrush="#FF7AC793" Command="{Binding addcommand}" CommandParameter="{Binding Category}" Grid.Row ="2" Margin="150,10,150,10" Background="#FF7AC793">Add</Button>
 
     </Grid>
 </UserControl>

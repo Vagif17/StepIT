@@ -5,6 +5,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using Monefy.Messages;
 using Monefy.Models;
+using Monefy.Services.Classes;
 using Monefy.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,54 +23,48 @@ class BudgetViewModel : ViewModelBase
     private readonly IMessenger _messenger;
 
     private PieChart chart = new();
-    
+    public Int32 Income { get; set; } // Спросить почему не отображается
 
     public PieChart Chart { get => chart; set => Set(ref chart); }
-
+    
     public BudgetViewModel(INavigationService navigationService, IMessenger messenger)
     {
+
+
         _navigationService = navigationService;
         _messenger = messenger;
         _messenger.Register<DataMessage>(this, message =>
         {
             try
             {
-                Chart.Series.Add(
-                    new PieSeries
-                    {
-                    
-                        Values = new ChartValues<Double> { (int)message.Data[1] },
-                        DataLabels = true,
-                        Fill = new SolidColorBrush(Colors.Fuchsia)
-                       
+                if (message.Data[0].ToString() != "Income")
+                {
+                    SolidColorBrush pieColor = ColorSetService.SetColor(message);
 
-                    }
-                );
+                    Chart.Series.Add(
+                        new PieSeries
+                        {
+
+                            Values = new ChartValues<Double> { (int)message.Data[1] },
+                            DataLabels = true,
+                            Fill = pieColor
+
+
+                        }
+                    ); ;
+                }
+                else
+                {
+                    Income += (Int32)message.Data[1] ;
+                }
             }
             catch
             {
             }
         });
-        Chart.InnerRadius = 35;
-        Chart.Series.Add(
-            new PieSeries
-            {
-                Values = new ChartValues<Double> { 100 },
-                DataLabels = true,
-                Fill = new SolidColorBrush(Colors.Green)
-
-            }
-            );
-
-        Chart.Series.Add(
-              new PieSeries
-              {
-                  Values = new ChartValues<Double> { 20 },
-                  DataLabels = true,
-                  Fill = new SolidColorBrush(Colors.Red)
-
-              }
-            );
+        Chart.InnerRadius = 40;
+         
+       
     }
 
     public RelayCommand<object> addexpensesBtn
@@ -77,8 +72,23 @@ class BudgetViewModel : ViewModelBase
         get => new(
             param =>
             {
+
                 object[] send = { param as string };
                 _navigationService.NavigateTo<BudgetEnterViewModel>(send);
+
             });
     }
+
+    public RelayCommand<object> addincomeBtn
+    {
+        get => new(
+            param =>
+            {
+
+                object[] send = { param as string };
+                _navigationService.NavigateTo<BudgetEnterViewModel>(send);
+
+            });
+    }
+
 }

@@ -29,15 +29,15 @@
 
             <StackPanel  HorizontalAlignment="Right" Margin="2" Orientation="Horizontal" Background="#FF7AC793" >
 
-                <Button x:Name="minimizeBtn" Background="#FF7AC793" Foreground="WhiteSmoke" Click="minimizeBtn_Click" >
+                <Button x:Name="minimizeBtn" BorderBrush="#FF7AC793" Background="#FF7AC793" Foreground="WhiteSmoke" Click="minimizeBtn_Click" >
                     <md:PackIcon Kind="Minimize"/>
                 </Button>
 
-                <Button x:Name="maximizeBtn" Background="#FF7AC793" Foreground="WhiteSmoke" Click="maximizeBtn_Click">
+                <Button x:Name="maximizeBtn" BorderBrush="#FF7AC793" Background="#FF7AC793" Foreground="WhiteSmoke" Click="maximizeBtn_Click">
                     <md:PackIcon Kind="Maximize"/>
                 </Button>
 
-                <Button x:Name="closeBtn" Background="#FF7AC793" Foreground="WhiteSmoke" Click="closeBtn_Click" >
+                <Button x:Name="closeBtn" BorderBrush="#FF7AC793" Background="#FF7AC793" Foreground="WhiteSmoke" Click="closeBtn_Click" >
                     <md:PackIcon Kind="Close"/>
                 </Button>
 
@@ -45,8 +45,11 @@
 
         </Grid>
 
+        <Grid x:Name="themenowGrid" Grid.Row="1" Background = "WhiteSmoke">
+            
         <ContentControl Grid.Row="1"
                         Content="{Binding CurrentView, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
 
     </Grid>
 
