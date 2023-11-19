@@ -28,6 +28,7 @@ namespace Monefy.Services.Classes;
         public MyRelayCommand(Action action)
         {
             _action = action;
+            _canExecute = () => true;
         }
 
         public MyRelayCommand(Action action, Func<bool> canExecute)

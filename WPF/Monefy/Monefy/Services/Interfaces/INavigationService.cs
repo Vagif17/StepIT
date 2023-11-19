@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace Monefy.Services.Interfaces;
 public interface INavigationService
     {
-        public void NavigateTo<T>(object[] data = null) where T : ViewModelBase;
+        public void NavigateTo<T>() where T : ViewModelBase;
     }
 

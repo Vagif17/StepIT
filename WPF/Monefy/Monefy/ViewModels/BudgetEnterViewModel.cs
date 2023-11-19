@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using INavigationService = Monefy.Services.Interfaces.INavigationService;
 
 namespace Monefy.ViewModels;
@@ -21,23 +22,31 @@ class BudgetEnterViewModel : ViewModelBase
 {
     private readonly INavigationService _navigationService;
     private readonly IMessenger _messenger;
+    private readonly IDataService _dataService;
+
     public string Category { get; set; }
+    public Brush Color { get; set; }
     public string ExpenseValue { get; set; }
 
-    public BudgetEnterViewModel(INavigationService navigationService, IMessenger messenger)
+    public Object[] Data { get; set; } = new Object[3];
+
+
+    public BudgetEnterViewModel(INavigationService navigationService, IMessenger messenger, IDataService dataService) 
     {
         _navigationService = navigationService;
         _messenger = messenger;
+        _dataService = dataService;
+
+
         _messenger.Register<DataMessage>(this, message =>
         {
-            try {
-                object check = message.Data[1];
-            }
-            catch
-            {
-                Category = message.Data[0] as string;
-            }
+
+            Category = message.Data[0].ToString();
+            Color = (Brush)message.Data[1];
+
         });
+
+
     }
 
 
@@ -55,8 +64,12 @@ class BudgetEnterViewModel : ViewModelBase
         get => new(
             () =>
             {
-                object[] send = { Category, Convert.ToInt32(ExpenseValue) };
-                _navigationService.NavigateTo<BudgetViewModel>(send);
+                Data[2] = ExpenseValue;
+                Data[1] = Color;
+                Data[0] = Category;
+                _dataService.SendData(Data);
+
+                _navigationService.NavigateTo<BudgetViewModel>();
                 ExpenseValue = "";
 
             },

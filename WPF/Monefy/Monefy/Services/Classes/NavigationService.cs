@@ -19,19 +19,13 @@ public class NavigationService : INavigationService
         _messenger = messenger;
     }
 
-    public void NavigateTo<T>(object[] data = null) where T : ViewModelBase
+    public void NavigateTo<T>() where T : ViewModelBase
     {
         _messenger.Send(new NavigationMessage()
         {
             ViewModelType = App.Container.GetInstance<T>()
         });
 
-        if (data != null)
-        {
-            _messenger.Send(new DataMessage()
-            {
-                Data = data
-            });
-        }
+       
     }
 }

@@ -33,6 +33,7 @@ public partial class App : Application
 
         Container.RegisterSingleton<IMessenger, Messenger>();
         Container.RegisterSingleton<INavigationService, NavigationService>();
+        Container.RegisterSingleton<IDataService, DataService>();
 
 
         Container.RegisterSingleton<BudgetViewModel>();

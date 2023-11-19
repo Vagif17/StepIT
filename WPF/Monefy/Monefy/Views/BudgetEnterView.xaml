@@ -19,12 +19,7 @@
 
         </Grid.RowDefinitions>
 
-        <!--<Label Grid.Row="0" Foreground="#FF7AC793" Margin="185,20,370,70" FontSize="20">Income</Label>
-        <TextBox Grid.Row="0" Background="WhiteSmoke" Margin="190,60,200,30" FontSize="20">
-            <md:HintAssist.Hint>
-                <TextBlock FontSize="20" Text="Enter Income..."/>
-            </md:HintAssist.Hint>
-        </TextBox>-->
+      
 
         <Label Grid.Row="1" BorderBrush="#FF7AC793" Foreground="#FF7AC793" Margin="185,20,370,70" FontSize="20" Content="{Binding Category}" />
         <TextBox Text="{Binding ExpenseValue, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Background="WhiteSmoke" Margin="190,60,200,30" FontSize="20" >

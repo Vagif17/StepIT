@@ -41,36 +41,36 @@
             </Grid.RowDefinitions>
 
 
-            <Button x:Name="clothesBtn" Grid.Column="2" Grid.Row="2" Command="{Binding addexpensesBtn}" CommandParameter="Clothes"  Foreground="Purple"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Clothes" Grid.Column="2" Grid.Row="2" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"  Foreground="Purple"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="ClothesHanger"  Height="26" Width="50"/>
             </Button>
 
 
-            <Button x:Name="petsBtn" Grid.Column="4" Grid.Row="4" Command="{Binding addexpensesBtn}" CommandParameter="Pet"  Foreground="Orange"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Pets" Grid.Column="4" Grid.Row="4" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"  Foreground="Orange"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="DogService" Height="26" Width="50"/>
             </Button>
 
-            <Button x:Name="foodBtn" Grid.Column="3" Grid.Row="4" Command="{Binding addexpensesBtn}" CommandParameter="Food"  Foreground="SpringGreen"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Food" Grid.Column="3" Grid.Row="4" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"  Foreground="SpringGreen"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="Food" Height="26" Width="50"/>
             </Button>
 
-            <Button x:Name="giftBtn" Grid.Column="2" Grid.Row="3" Command="{Binding addexpensesBtn}" CommandParameter="Gift"  Foreground="YellowGreen"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Gift" Grid.Column="2" Grid.Row="3" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"  Foreground="YellowGreen"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="Gift" Height="26" Width="50"/>
             </Button>
 
-            <Button x:Name="carBtn" Grid.Column="5" Grid.Row="3" Command="{Binding addexpensesBtn}" CommandParameter="Car"  Foreground="Cyan"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Car" Grid.Column="5" Grid.Row="3" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"  Foreground="Cyan"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="Car" Height="26" Width="50"/>
             </Button>
 
-            <Button x:Name="healthBtn" Grid.Column="5" Grid.Row="2" Command="{Binding addexpensesBtn}" CommandParameter="Health"  Foreground="Red"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Health" Grid.Column="5" Grid.Row="2" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"  Foreground="Red"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="HealthPotion" Height="26" Width="50"/>
             </Button>
 
-            <Button x:Name="sportBtn" Grid.Column="4" Grid.Row="1" Command="{Binding addexpensesBtn}" CommandParameter ="Sport"  Foreground="BurlyWood"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Sport" Grid.Column="4" Grid.Row="1" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"  Foreground="BurlyWood"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="Soccer" Height="26" Width="50"/>
             </Button>
 
-            <Button x:Name="homeBtn" Grid.Column="3" Grid.Row="1" Command="{Binding addexpensesBtn}" CommandParameter="Home" Foreground="Fuchsia"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
+            <Button x:Name="Home" Grid.Column="3" Grid.Row="1" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" Foreground="Fuchsia"  Style="{ StaticResource MaterialDesignFlatAccentButton }" >
                 <md:PackIcon Kind="Home" Height="26" Width="50"/>
             </Button>
 
@@ -78,12 +78,12 @@
             <lvc:PieChart   Name="Chart1" BorderBrush="Gray" Content="{Binding Chart}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Hoverable="True"  />
 
 
-            <Button x:Name="plusbtn" Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="5"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton }" Background="Red" Foreground="White" BorderBrush="Red" Command="{Binding addexpensesBtn}" CommandParameter="Other" >
+            <Button x:Name="Minus" Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="5"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton }" Background="Red" Foreground="White" BorderBrush="Red" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" >
                 <md:PackIcon Kind="Minus"></md:PackIcon>
             </Button>
 
 
-            <Button x:Name="minusBtn" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="5" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton }" Background="Green" Foreground="White" BorderBrush="Green" Command="{Binding addincomeBtn}" CommandParameter="Income" >
+            <Button x:Name="Plus" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="5" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton }" Background="Green" Foreground="White" BorderBrush="Green" Command="{Binding addBtn}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" >
                 <md:PackIcon Kind="Plus"></md:PackIcon>
             </Button>
 

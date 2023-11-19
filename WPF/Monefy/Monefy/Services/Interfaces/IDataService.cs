@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Monefy.Messages
+namespace Monefy.Services.Interfaces;
+
+interface IDataService
 {
-    class DataMessage
-    {
-        public object[] Data { get; set; }
-    }
+    public void SendData(Object[]? data);
 }
