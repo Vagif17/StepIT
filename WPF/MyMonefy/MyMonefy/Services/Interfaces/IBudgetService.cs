@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace MyMonefy.Services.Interfaces;
 
-interface IDataService
+interface IBudgetService
 {
-    public void SendData(Object[]? data);
-    public void SendExpenses(Expenses expenses);
+
+    public void ExpnesesSerialization(Expenses expenses);
+        
+
 }

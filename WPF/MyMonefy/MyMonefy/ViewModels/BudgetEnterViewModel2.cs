@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using MyMonefy.Messages;
+using MyMonefy.Models;
 using MyMonefy.Services.Classes;
 using MyMonefy.Services.Interfaces;
 using System;
@@ -22,6 +23,8 @@ class BudgetEnterViewModel2 : ViewModelBase
     public string Category { get; set; }
     public Brush Color { get; set; }
     public string ExpenseValue { get; set; }
+
+    public Expenses Expenses { get; set; } = new Expenses();
 
     public Object[] Data { get; set; } = new Object[3];
 
@@ -49,7 +52,13 @@ class BudgetEnterViewModel2 : ViewModelBase
                 Data[2] = ExpenseValue;
                 Data[1] = Color;
                 Data[0] = Category;
+
+                Expenses.Value = Convert.ToInt32 (ExpenseValue);
+                Expenses.Category = Category;
+
                 _dataService.SendData(Data);
+
+                _dataService.SendExpenses(Expenses);
 
                 _navigationService.NavigateTo<BudgetViewModel>();
                 ExpenseValue = "";

@@ -26,7 +26,7 @@ class MainViewModel : ViewModelBase
 
     public MainViewModel(Services.Interfaces.INavigationService navigationService, IMessenger messenger)
     {
-        CurrentView = App.Container.GetInstance<ChoiceViewModel>(); // ЗАМЕНИТЬ ПОТОМ НА CHOICEVIEWMODEL
+        CurrentView = App.Container.GetInstance<BudgetViewModel>(); // ЗАМЕНИТЬ ПОТОМ НА CHOICEVIEWMODEL
 
         _navigationService = navigationService;
         _messenger = messenger;
