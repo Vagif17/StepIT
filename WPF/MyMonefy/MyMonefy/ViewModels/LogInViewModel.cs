@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using MyMonefy.Messages;
 using MyMonefy.Models;
+using MyMonefy.Services.Classes;
 using MyMonefy.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -30,21 +31,25 @@ class LogInViewModel : ViewModelBase
     }
 
 
-    public RelayCommand loginCommand
+    public MyRelayCommand loginCommand
     {
         get => new(
             () =>
-            { 
-              if (  _userService.Login(Name, Password))
-                _navigationService.NavigateTo<BudgetViewModel>();
+            {
+                if (_userService.Login(Name, Password))
+                    _navigationService.NavigateTo<BudgetViewModel>();
                 else
                 {
                     MessageBox.Show("Incorect password or name");
                 }
+            },
+            () =>
+            {
+                return !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Password);
             });
     }
 
-    public RelayCommand gobackCommand
+    public MyRelayCommand gobackCommand
     {
         get => new(
         () =>

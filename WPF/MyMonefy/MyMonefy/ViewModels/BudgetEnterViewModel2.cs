@@ -13,7 +13,7 @@ using System.Windows.Media;
 
 namespace MyMonefy.ViewModels;
 
-class BudgetEnterViewModel2 : ViewModelBase
+class BudgetEnterViewModel2 : ViewModelBase 
 {
     private readonly INavigationService _navigationService;
     private readonly IMessenger _messenger;
@@ -41,7 +41,7 @@ class BudgetEnterViewModel2 : ViewModelBase
         });
     }
 
-    public RelayCommand addcommand
+    public MyRelayCommand addcommand
     {
         get => new(
             () =>
@@ -54,6 +54,21 @@ class BudgetEnterViewModel2 : ViewModelBase
                 _navigationService.NavigateTo<BudgetViewModel>();
                 ExpenseValue = "";
 
+            },
+            () =>
+            {
+                if (!String.IsNullOrEmpty(ExpenseValue))
+                {
+                    for (int i = 0; i < ExpenseValue.Length; i++)
+                    {
+                        if (ExpenseValue[i] < 48 || ExpenseValue[i] > 57)
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                return false;
             }
 
             );

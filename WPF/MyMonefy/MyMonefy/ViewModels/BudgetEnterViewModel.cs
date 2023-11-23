@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
+using MyMonefy.Services.Classes;
 using MyMonefy.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ class BudgetEnterViewModel : ViewModelBase
             });
     }
 
-        public RelayCommand gobackCommand
+        public MyRelayCommand gobackCommand
     {
         get => new(
             () =>

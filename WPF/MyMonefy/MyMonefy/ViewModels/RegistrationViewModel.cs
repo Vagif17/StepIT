@@ -12,6 +12,7 @@ using MyMonefy.Services.Interfaces;
 using System.Windows;
 using MyMonefy.Models;
 using System.IO;
+using MyMonefy.Services.Classes;
 
 namespace MyMonefy.ViewModels;
 
@@ -22,18 +23,21 @@ class RegistrationViewModel : ViewModelBase
     private readonly INavigationService _navigationService;
     private readonly IMessenger _messenger;
     private readonly IUserService _userService;
-    public Account Account { get; set; } = new Account();
-    
+    private readonly IRegistrationParametrsService _registrationParametrsService;
 
-    public RegistrationViewModel(INavigationService navigationService, IMessenger messenger,IUserService userService)
+    public Account Account { get; set; } = new Account();
+    public string Confirmpassword { get; set; }
+
+    public RegistrationViewModel(INavigationService navigationService, IMessenger messenger,IUserService userService, IRegistrationParametrsService registrationParametrsService)
     {
         _navigationService = navigationService;
         _messenger = messenger;
         _userService = userService;
+        _registrationParametrsService = registrationParametrsService;
     }
 
 
-    public RelayCommand submitBtn
+    public MyRelayCommand submitBtn
     {
         get => new(
             () =>
@@ -43,19 +47,19 @@ class RegistrationViewModel : ViewModelBase
             },
             () =>
             {
-           
-                //if (Account.Name != null && Account.Surname != null && Account.Email != null && Account.Password != null)
-                //{
-                //    return _registrationService.checkAll(Account.Name, Account.Surname, Account.Email); НЕ РАБОТАЕТ
-                //}
-                return true  ;
+
+                if (Account.Name != null && Account.Surname != null && Account.Email != null && Account.Password != null)
+                {
+                    return _registrationParametrsService.CheckAll(Account.Name, Account.Surname, Account.Email,Account.Password,Confirmpassword);
+                }
+                return false  ;
 
             }
             );
     }
 
 
-    public RelayCommand gobackCommand
+    public MyRelayCommand gobackCommand
     {
         get => new(
         () =>

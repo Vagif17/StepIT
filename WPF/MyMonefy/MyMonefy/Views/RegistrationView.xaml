@@ -26,7 +26,7 @@
           
 
 
-        <Border Grid.Row="0" Grid.RowSpan="4" Background="DarkCyan" CornerRadius="120"></Border>
+        <Border Grid.Row="0" Grid.RowSpan="5" Background="DarkCyan" CornerRadius="120"></Border>
 
         <TextBox  x:Name="nameTextBox" Grid.Row="0" Text="{Binding Account.Name, UpdateSourceTrigger=PropertyChanged}"   FontSize="20" Margin="80,40,80,22" Background="White" Foreground="Black" >
             <md:HintAssist.Hint>
@@ -53,7 +53,13 @@
            
         </TextBox>
 
-        
+        <TextBox x:Name="passwordconfirmTextBox" Grid.Row="4" Text="{Binding  Confirmpassword, UpdateSourceTrigger=PropertyChanged}"  FontSize="20" Background="White"  Margin="80,40,80,22">
+            <md:HintAssist.Hint>
+                <TextBlock>Enter Password...</TextBlock>
+            </md:HintAssist.Hint>
+
+        </TextBox>
+
 
         <Border Grid.Row="5" Background="DarkCyan" CornerRadius="30" Margin="120,100,110,-50">
 

@@ -36,6 +36,7 @@ public partial class App : Application
         Container.RegisterSingleton<IUserService, UserService>();
         Container.RegisterSingleton<ICalculateService, CalculateService>();
         Container.RegisterSingleton<IDataService, DataService>();
+        Container.RegisterSingleton<IRegistrationParametrsService, RegistrationParametrsService>();
 
         Container.RegisterSingleton<MainViewModel>();
         Container.RegisterSingleton<ChoiceViewModel>();
