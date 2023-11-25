@@ -36,6 +36,13 @@ class DataService : IDataService
         }
     }
 
+    public void SendActiveUser(string name)
+    {
+        if (name != null)
+        {
+            _messenger.Send(new ActiveUserMessage() { Name = name });
+        }
+    }
 
 }
 

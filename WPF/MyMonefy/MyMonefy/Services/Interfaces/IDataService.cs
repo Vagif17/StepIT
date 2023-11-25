@@ -11,4 +11,6 @@ interface IDataService
 {
     public void SendData(Object[]? data);
     public void SendExpenses(Expenses expenses);
+    public void SendActiveUser(string name);
+
 }

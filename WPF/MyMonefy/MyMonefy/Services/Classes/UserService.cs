@@ -28,7 +28,7 @@ class UserService : IUserService
         using StreamReader sr = new(fs);
 
         string json = sr.ReadToEnd();
-        if (json == null)
+        if (json == null && json == "")
         {
             return false;
         }
@@ -51,13 +51,29 @@ class UserService : IUserService
 
     public void Register(Account user)
     {
-        List<Account> accounts = new List<Account>();   
+        using FileStream fs = new("data.json", FileMode.Open);
+        using StreamReader sr = new(fs);
+
+        List<Account> accounts = new List<Account>();
+
+        string json = sr.ReadToEnd();
+
+        if (json != null && json != "")
+        {
+            accounts = JsonSerializer.Deserialize<List<Account>>(json);
+
+        }
+
         accounts.Add(user);
 
-        using FileStream fs = new("data.json", FileMode.Open);
-        using StreamWriter sr = new(fs);
+        fs.Close(); // Закрываю этот поток чтобы сделать новый с другим FileMode-ом
 
-         string json = JsonSerializer.Serialize(accounts);
-         sr.WriteLine(json);
+        using FileStream fileStream = new FileStream("data.json", FileMode.Truncate);
+        
+
+        using StreamWriter sw = new(fileStream);
+
+         json = JsonSerializer.Serialize(accounts);
+         sw.WriteLine(json);
     }
 }

@@ -42,7 +42,7 @@ class RegistrationViewModel : ViewModelBase
         get => new(
             () =>
             {
-                _userService.Register(Account); // ПОКА МОЖНО ЗАРЕГИСТРИРОВАТЬ ТОЛЬКО 1 АКАУНТ,ЕСТЬ ПИРОБЛЕМЫ НО НЕТ ВРЕМЕНИ
+                _userService.Register(Account);
                 _navigationService.NavigateTo<ChoiceViewModel>();
             },
             () =>

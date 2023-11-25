@@ -30,6 +30,7 @@
             <md:PackIcon Kind="ExitRun"></md:PackIcon>
         </Button>
 
+        <TextBlock Background="DarkCyan" Margin="48,0,220,30" FontSize="25" Text="{Binding ActiveUserName}" /> 
 
 
 

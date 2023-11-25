@@ -28,12 +28,12 @@ internal class BudgetViewModel : ViewModelBase
     private readonly IBudgetService _budgetService; 
 
     private PieChart chart = new();
+    public PieChart PieChart { get => chart; set => Set(ref chart); }
 
     private Expenses Expenses { get; set; }
 
-    public PieChart PieChart { get => chart; set => Set(ref chart); }
-
     public object[] data = new object[3];
+    public string ActiveUserName { get; set; }
 
     public BudgetViewModel(INavigationService navigationService, IMessenger messenger, IDataService dataService, IBudgetService budgetService)
     {
@@ -76,6 +76,19 @@ internal class BudgetViewModel : ViewModelBase
 
 
         });
+
+        _messenger.Register<ActiveUserMessage>(this, message => 
+        {
+            
+            if (message.Name != null) 
+            {
+                ActiveUserName = message.Name; 
+            }
+
+
+        });
+
+       
     }
 
 
@@ -87,7 +100,7 @@ internal class BudgetViewModel : ViewModelBase
                 data[0] = btn.Name; // Category
                 data[1] = btn.Foreground;
                 _dataService.SendData(data);
-                _navigationService.NavigateTo<BudgetEnterViewModel2>(); // Должен был в BudgetEnterViewModel переходть.Он работает,но не отображает,ну то есть не работает да.Короче говоря он на ремонте
+                _navigationService.NavigateTo<BudgetEnterViewModel2>(); // Должен был в BudgetEnterViewModel переходть.Он работает,но не отображает числа которые вы вводите во время ввода ,ну то есть не работает да.Короче говоря он на ремонте
 
             });
     }
