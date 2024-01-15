@@ -7,6 +7,9 @@ cmake-Build-debug
 *.userosscache
 *.sln.docstates
 
+appsettings.json
+SQLSettings.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
