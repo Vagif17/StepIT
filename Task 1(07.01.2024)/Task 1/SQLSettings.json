@@ -1,5 +1,0 @@
-﻿{
-  "ConnectionStrings": {
-    "Default": "Data Source=VG-AL;Initial Catalog=Academy;Integrated Security=True;Connect Timeout=30;Encrypt=False;"
-  }
-}
