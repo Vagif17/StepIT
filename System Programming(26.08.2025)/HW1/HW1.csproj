@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Views\MainWindowView.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+
+        <PackageReference Include="SimpleInjector" Version="5.5.0" />
+        <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+        <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
+        <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+
+    </ItemGroup>
+    
+</Project>
