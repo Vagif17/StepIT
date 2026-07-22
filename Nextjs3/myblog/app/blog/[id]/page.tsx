@@ -49,7 +49,7 @@ export default async function  BlogPost ({ params }: { params: Promise<{ id: str
 };
 
 export function generateStaticParams() {
-    return ARTICLES.map(article => ({
-        id: article.id,
-    }));
+  return ARTICLES.map(article => ({
+    id: article.id.toString(),
+  }));
 }
