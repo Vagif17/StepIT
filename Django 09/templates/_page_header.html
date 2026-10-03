@@ -1,0 +1,17 @@
+
+<header class="site-header">
+    <div class="site-header__inner">
+
+        <a href="{% url 'events:list' %}" class="site-logo">
+            <span class="dot"></span>
+            Mini Event Manager
+        </a>
+
+        <nav class="site-nav">
+            <a href="{% url 'events:list' %}" class="is-active">Список событий</a>
+
+            <a href="{% url 'events:create' %}">+ Создать событие</a>
+        </nav>
+
+    </div>
+</header>

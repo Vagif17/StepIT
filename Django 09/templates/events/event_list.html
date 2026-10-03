@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Список событий — Mini Event Manager{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+    <div>
+        <h1>События</h1>
+        <p>Все запланированные и завершённые мероприятия в одном месте.</p>
+    </div>
+    <a href="{% url 'events:create' %}" class="btn btn-primary">
+        + Создать событие
+    </a>
+</div>
+
+
+<div class="stats-bar">
+    <div class="stat-card stat-card--total">
+        <div class="stat-card__value">{{ total_count }}</div>
+        <div class="stat-card__label">Всего событий</div>
+    </div>
+
+    <div class="stat-card stat-card--active">
+        <div class="stat-card__value">{{ active_count }}</div>
+        <div class="stat-card__label">Активные</div>
+    </div>
+
+    <div class="stat-card stat-card--closed">
+        <div class="stat-card__value">{{ closed_count }}</div>
+        <div class="stat-card__label">Закрытые</div>
+    </div>
+</div>
+
+<form class="filter-bar" method="get" action="{% url 'events:list' %}">
+
+    <div class="filter-field">
+        <label for="q">Поиск</label>
+        <input
+    type="text"
+    id="q"
+    name="q"
+    placeholder="Название или место проведения..."
+    value="{{ query }}"
+>
+    </div>
+
+    <div class="filter-field">
+        <label for="category">Категория</label>
+        <select id="category" name="category">
+    <option value="">Все категории</option>
+
+    <option value="education"
+        {% if selected_category == 'education' %}selected{% endif %}>
+        Education
+    </option>
+
+    <option value="technology"
+        {% if selected_category == 'technology' %}selected{% endif %}>
+        Technology
+    </option>
+
+    <option value="sport"
+        {% if selected_category == 'sport' %}selected{% endif %}>
+        Sport
+    </option>
+
+    <option value="entertainment"
+        {% if selected_category == 'entertainment' %}selected{% endif %}>
+        Entertainment
+    </option>
+
+    <option value="other"
+        {% if selected_category == 'other' %}selected{% endif %}>
+        Other
+    </option>
+</select>
+    </div>
+
+    <div class="filter-field">
+        <label for="status">Статус</label>
+        <select id="status" name="status">
+    <option value="">Все статусы</option>
+
+    <option value="active"
+        {% if selected_status == 'active' %}selected{% endif %}>
+        Активные
+    </option>
+
+    <option value="closed"
+        {% if selected_status == 'closed' %}selected{% endif %}>
+        Закрытые
+    </option>
+</select>
+    </div>
+
+    <div class="filter-actions">
+        <button type="submit" class="btn btn-primary">Применить</button>
+        {% comment %}TODO: href="{% url 'events:list' %}" — сброс фильтров{% endcomment %}
+        <a href="{% url 'events:list' %}" class="btn btn-outline">
+            Сбросить
+        </a>    </div>
+
+</form>
+
+{% comment %}
+
+
+{% verbatim %}
+{% for event in events %}
+    <div class="event-card">
+        <div class="event-card__top">
+            <h3 class="event-card__title">{{ event.title }}</h3>
+            <span class="badge badge--cat-{{ event.category|lower }}">{{ event.category }}</span>
+        </div>
+        <div class="event-card__venue">📍 {{ event.venue }}</div>
+        <div class="event-card__footer">
+            <span class="badge badge--status-{{ event.status|lower }}">{{ event.get_status_display }}</span>
+            <div class="event-card__actions">
+                <a href="{% url 'events:detail' event.pk %}" class="btn btn-outline btn-sm">Подробнее</a>
+            </div>ё
+        </div>
+    </div>
+{% empty %}
+    <div class="empty-state">
+        <h3>Событий не найдено</h3>
+        <p>Попробуйте изменить параметры поиска или фильтры.</p>
+    </div>
+{% endfor %}
+{% endverbatim %}
+
+{% endcomment %}
+<div class="event-grid">
+
+{% for event in events %}
+    <div class="event-card">
+        <div class="event-card__top">
+            <h3 class="event-card__title">{{ event.title }}</h3>
+            <span class="badge badge--cat-{{ event.category|lower }}">{{ event.category }}</span>
+        </div>
+        <div class="event-card__venue">📍 {{ event.venue }}</div>
+        <div class="event-card__footer">
+            <span class="badge badge--status-{{ event.status }}">
+                {% if event.status == 'active' %}Активно{% else %}Закрыто{% endif %}
+            </span>
+            <div class="event-card__actions">
+                <a href="{% url 'events:detail' event.id %}" class="btn btn-outline btn-sm">Подробнее</a>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <div class="empty-state">
+        <h3>Событий не найдено</h3>
+        <p>Попробуйте изменить параметры поиска или фильтры.</p>
+    </div>
+{% endfor %}
+
+</div>
+
+{% comment %}
+
+<div class="empty-state">
+    <h3>Событий не найдено</h3>
+    <p>Попробуйте изменить параметры поиска или фильтры.</p>
+</div>
+{% endcomment %}
+
+{% endblock %}

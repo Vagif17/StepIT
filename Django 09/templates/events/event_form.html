@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Создать событие — Mini Event Manager{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+    <div>
+        <h1>Создать событие</h1>
+        <p>Заполните форму, чтобы добавить новое мероприятие в список.</p>
+    </div>
+</div>
+
+<form class="form-card" method="post" action="#">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="title">Название события</label>
+        <input type="text" id="title" name="title" class="form-control"
+               placeholder="Например: Открытие IT-конференции">
+        <div class="hint">Минимум 5 символов.</div>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea id="description" name="description" class="form-control"
+                  placeholder="Коротко опишите событие..."></textarea>
+        <div class="hint">Минимум 20 символов.</div>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Категория</label>
+        <select id="category" name="category" class="form-control">
+            <option value="education">Education</option>
+            <option value="technology">Technology</option>
+            <option value="sport">Sport</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="venue">Место проведения</label>
+        <input type="text" id="venue" name="venue" class="form-control"
+               placeholder="Например: Главный корпус, ауд. 305">
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Создать</button>
+        <a href="#" class="btn btn-outline">Отмена</a>
+    </div>
+
+</form>
+
+{% endblock %}
